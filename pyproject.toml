@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "qfp"
-version = "0.1.0"
+version = "0.2.0"
 description = "Quad-based audio fingerprinting (fork of https://github.com/mbortnyck/qfp)"
 authors = [
 	"Michael Bortnyck <michael.bortnyck@gmail.com>"
