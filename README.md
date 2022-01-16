@@ -1,14 +1,23 @@
-# qfp
+# Qfp
 Qfp is a python library for creating audio fingerprints that are robust to alterations in pitch and speed. This method is ideal for ID'ing music from recordings such as DJ sets where the tracks are commonly played at a different pitch or speed than the original recording. Qfp is an implementation of the audio fingerprinting/recognition algorithms detailed in a 2016 academic paper by Reinhard Sonnleitner and Gerhard Widmer [[1]](http://www.cp.jku.at/research/papers/Sonnleitner_etal_DAFx_2014.pdf).
 
+**NOTE**: This is a fork of https://github.com/mbortnyck/qfp/ which incorporates:
+* multiple bug fixes
+* Python 3 compatibilty
+* modern packaging with Poetry
+
+This is all in service of having a convient audio fingerprinting service
+for a website I'm working on.
+---
+
 ## Quickstart
-Install by cloning the repository.
+Install by downloading it from PyPI.
 
-```
-git clone https://github.com/mbortnyck/qfp/
+```bash
+pip install qfp
 ```
 
-You can create a fingerprint from your reference audio
+You can create a fingerprint from your reference audio...
 
 ```python
 from qfp import ReferenceFingerprint
@@ -17,7 +26,7 @@ fp_r = ReferenceFingerprint("Prince_-_Kiss.mp3")
 fp_r.create()
 ```
 
-... or a query fingerprint from an audio clip that you wish to identify.
+...or a query fingerprint from an audio clip that you wish to identify.
 
 ```python
 from qfp import QueryFingerprint
@@ -46,15 +55,15 @@ print(fp_q.matches)
 ```
 
 
-Qfp currently accepts recordings in [any format that ffmpeg can handle](http://www.ffmpeg.org/general.html#File-Formats).
+Qfp currently accepts recordings in [any format that FFmpeg can handle](http://www.ffmpeg.org/general.html#File-Formats).
 
 ## Dependencies
 
-ffmpeg - [https://github.com/FFmpeg/FFmpeg](https://github.com/FFmpeg/FFmpeg)<br>
-numpy - [https://github.com/numpy/numpy](https://github.com/numpy/numpy)<br>
-pydub - [https://github.com/jiaaro/pydub](https://github.com/jiaaro/pydub)<br>
-scipy - [https://github.com/scipy/scipy](https://github.com/scipy/scipy)<br>
-sqlite - [https://www.sqlite.org/](https://www.sqlite.org/)<br>
+FFmpeg - [https://github.com/FFmpeg/FFmpeg](https://github.com/FFmpeg/FFmpeg)<br>
+NumPy - [https://github.com/numpy/numpy](https://github.com/numpy/numpy)<br>
+Pydub - [https://github.com/jiaaro/pydub](https://github.com/jiaaro/pydub)<br>
+SciPy - [https://github.com/scipy/scipy](https://github.com/scipy/scipy)<br>
+SQLite - [https://www.sqlite.org/](https://www.sqlite.org/)<br>
 
 ***
 *<sub>[1]	R. Sonnleitner and G. Widmer, "Robust quad-based audio fingerprinting," IEEE/ACM Transactions on Audio, Speech and Language Processing (TASLP), vol. 24, no. 3, pp. 409–421, Jan. 2016. [Online]. Available: [http://ieeexplore.ieee.org/abstract/document/7358094/](http://ieeexplore.ieee.org/abstract/document/7358094/). Accessed: Nov. 15, 2016.<sub>*
